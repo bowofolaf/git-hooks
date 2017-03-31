@@ -4,11 +4,11 @@ var exec = require('child_process').exec;
 // cmd/terminal commands
 var commands = [];
 
-for(var command in commands) {
+commands.forEach(function(command) {
     exec(command, function(error, stdout, stderr) {
         if(error) {
-            console.log(`${command} failed`);
+            console.log(`[pre-push] - ${command} failed!`);
             process.exit(1);
         }
     });
-}
+});
